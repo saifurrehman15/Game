@@ -1,0 +1,483 @@
+body {
+    /* background: linear-gradient(to right, yellow, black, yellow);
+    animation: change 4s infinite; */
+    margin: 0px !important;
+    padding: 0px !important;
+    background-image: url(flags/back.jpg);
+    background-position: right;
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+
+    color: #fff;
+}
+
+/* @keyframes change {
+    10%{
+        background: linear-gradient(to bottom,  black,yellow, yellow);
+
+    }
+} */
+.over-block {
+    height: 200px;
+    width: 100%;
+    background-color: rgba(12, 47, 143, 0.26);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+.over-area input {
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: white;
+    color: rgb(8, 151, 151);
+    text-align: center;
+    font-weight: bold;
+}
+
+.over-set {
+    height: 50px;
+    width: 50px;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+}
+
+.over-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgb(8, 151, 151);
+    width: 150px;
+    border-radius: 4px;
+}
+
+.over-area button {
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    background: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.rowmy {
+    margin-top: 90px;
+    width: 100%;
+    height: 200px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    /* Changed from overflow-y to overflow-x */
+    overflow-y: hidden;
+    box-shadow: 0px 0px 10px black;
+    background-color: #ffffff3a;
+}
+
+.rowmy::-webkit-scrollbar {
+    display: none;
+}
+
+.team {
+    display: inline-block;
+    width: 150px;
+    height: 180px;
+    border: 3px solid rgba(255, 255, 255, 0);
+    padding: 5px;
+}
+
+.team:hover {
+    border: 3px solid blue;
+}
+
+.teams {
+    height: 30px;
+    display: flex;
+
+    align-items: center;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 10px 20px;
+    background-color: rgba(69, 26, 168, 0.486);
+    color: #fff;
+    border-radius: 10px;
+    font-style: italic;
+
+}
+#team1Tossask{
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+#toss {
+    display: flex;
+    font-size: 24px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#toss button{
+    border: none;
+    background-color: blue;
+height: 40px;
+width: 80px;
+border-radius: 4px;
+}
+.container {
+    padding: 0px 10px;
+}
+
+
+.progress-bar {
+    width: 80%;
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 20px auto;
+    height: 30px;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #3498db;
+    transition: width 0.4s ease;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+
+
+.area {
+    display: none;
+    box-shadow: 0px 0px 20px rgb(37, 37, 37);
+    margin-top: 50px;
+    padding: 10px 0px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: #4d4d4d73;
+
+    color: #fff;
+
+}
+
+#result2{
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+@media only screen and (max-width:800px) {
+    .area2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .showDialog {
+
+        height: 200px;
+        width: 95% !important;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px black;
+        position: absolute;
+        bottom: 50%;
+        background-color: #fff;
+        box-sizing: content-box;
+    }
+
+    .set {
+        display: flex;
+        flex-direction: row-reverse;
+
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    #btn2,
+    #showShots2 {
+        margin-left: 60px;
+    }
+
+    .showDialog {
+        width: 300px !important;
+        height: 400px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px black;
+        background-color: #fff;
+        padding: 0px 55px 10px 55px !important;
+
+        font-size: 20px;
+
+    }
+
+    .team-Name {
+        display: flex;
+        align-items: center;
+        font-size: 12px !important;
+        gap: 5px;
+        font-style: italic;
+    }
+
+}
+
+.btn {
+    display: none;
+}
+
+.back-button {
+    text-decoration: none;
+    border: 1px solid blue;
+    color: black;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+button {
+    background-color: rgb(91, 91, 155);
+
+    color: #fff;
+}
+
+
+
+#loader {
+    background: url("flags/hand-drawn-ipl-cricket-illustration_23-2149213601.avif") no-repeat center;
+    background-size: 100% 100%;
+
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(219, 223, 29);
+    position: absolute;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-style: italic;
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 85px;
+    height: 50px;
+    --g1: conic-gradient(from 90deg at left 3px top 3px, #0000 90deg, #000 0);
+    --g2: conic-gradient(from -90deg at bottom 3px right 3px, #0000 90deg, #000 0);
+    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
+    background-position: left, center, right;
+    background-repeat: no-repeat;
+    animation: l9 1s infinite;
+}
+
+@keyframes l9 {
+    0% {
+        background-size: 25px 50%, 25px 50%, 25px 50%;
+    }
+
+    25% {
+        background-size: 25px 100%, 25px 50%, 25px 50%
+    }
+
+    50% {
+        background-size: 25px 50%, 25px 100%, 25px 50%
+    }
+
+    75% {
+        background-size: 25px 50%, 25px 50%, 25px 100%
+    }
+
+    100% {
+        background-size: 25px 50%, 25px 50%, 25px 50%
+    }
+}
+
+.loader-wrapper {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(37, 37, 37);
+    text-align: center;
+    display: none;
+    color: #fff;
+
+}
+
+.versus {
+    background-color: rgba(22, 22, 22, 0.192);
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+}
+
+#empty1 {
+    width: 100%;
+
+}
+
+#empty {
+    width: 100%;
+}
+
+.boxes {
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+#btn1 button {
+    background-color: rgb(103, 103, 168);
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    width: 40px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+#btn1,
+#showShots {
+    margin-left: 45px;
+}
+
+#btn2 button {
+    background-color: rgb(101, 101, 170);
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    width: 40px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+/* #btn2 {
+    margin-top: 10px;
+}
+*/
+.loader-wrapper img {
+    margin-top: 50px;
+}
+
+.container {
+    display: none;
+}
+
+.target,
+#target2 {
+    font-weight: bold;
+    font-family: cursive;
+    margin-left: 20px;
+}
+
+#showShots {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    align-items: center;
+    width: 220px;
+    gap: 5px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    color: #000;
+}
+
+#showShots2 {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 5px;
+    height: 50px;
+    align-items: center;
+    width: 220px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    color: #000;
+
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog {
+    height: 100vh !important;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    display: none;
+}
+
+.showDialog {
+    width: 50% !important;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+    background-color: #fff;
+    padding: 10px;
+    color: #000;
+
+}
+
+.showDialog button {
+    border: none;
+    background-color: blue;
+    height: 40px;
+    width: 80px;
+    border-radius: 4px;
+}
+
+.btnclose {
+    background: none !important;
+}
+
+.team-Name {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+
+    gap: 5px;
+    font-style: italic;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+#footer {
+    margin-top: 50px;
+}
+#result{
+    margin-left: 20px;
+}

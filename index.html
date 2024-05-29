@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Fever</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="app.js"></script>
+
+</head>
+
+<body onmouseover="soundStart()" id="demo">
+    <div id="loader">
+        <div class="loader">
+        </div>
+    </div>
+
+    <div class="loader-wrapper" id="rem">
+
+        <div>
+            <img src="flags/loading.jpg" alt="" id="img">
+
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <p>Loading, please wait...</p>
+    </div>
+
+
+    <div class="container" id="container">
+        <div id="change">
+            <div class="over-block">
+                <h3>Game Settings</h3>
+                <p>Overs</p>
+                <div class="over-area">
+                    <button onclick="decrement()" class="button">- </button>
+
+                    <div class="over-set">
+                        <input type="number" id="val" value="2" max="50" min="2" readonly>
+
+                    </div>
+
+
+                    <button onclick="increment()" class="button"> +</button>
+                </div>
+            </div>
+
+            <div id="teams">
+                <h3>
+                    Choose first Team
+                </h3>
+
+                <div class="rowmy" id="teams">
+                    <div class="team">
+                        <img src="flags/download-removebg-preview.png" alt="" height="100%" width="100%"
+                            style="object-fit: contain;" onclick="team('India')">
+
+                    </div>
+                    <div class="team">
+                        <img src="flags/ind.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team('South Africa')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/images.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team('Australia')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/afg.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team('Afghanistan')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/download (1).png" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team('New Zealand')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/England_cricket_team_logo.svg.png" alt="" height="100%" width="100%"
+                            style="object-fit: contain;" onclick="team('England')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/pak-removebg-preview.png" alt="" height="100%" width="100%"
+                            onclick="team('Pakistan')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/wi.png" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team('WestIndies')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/sri.png" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team('Srilanka')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/bang.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team('Bangladesh')">
+                    </div>
+                </div>
+            </div>
+            <div id="team1"></div>
+            <div id="team2"></div>
+        </div>
+
+
+
+        <div class="dialog" id="dialog">
+            <div class="showDialog">
+                <div class="header">
+                    <button onclick="none()" class="btnclose">
+                        <svg height="30" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    Match Overs:
+                    <span id="overs"></span>
+                </div>
+
+                <div class="team-Name">
+                    <div id="team3"></div>
+                    <div id="team4"></div>
+                </div>
+                <div class="header" id="footer">
+                </div>
+            </div>
+        </div>
+        <div id="target" class="target"></div>
+        <div id="target2"></div>
+
+        <div class="area" id="main">
+
+            <div class="first-in">
+
+                <div style="display: flex;align-items: center;gap: 5px;">
+                    <img src="" alt="" height="60" id="img1">
+                    <div id="empty"><span id="teamName"></span> : <span id="forZero">0</span><span id="total">0</span>/
+                        <span id="wkt">0</span><br> Overs <span id="over">0</span>.<span id="balls">0</span> (<span
+                            id="leng">2</span>)
+                    </div>
+                </div>
+                <div id="showShots"></div>
+
+                <div id="btn1">
+                    <button onclick="ran2(0)">0</button>
+                    <button onclick="ran2(1)">1</button>
+                    <button onclick="ran2(2)">2</button>
+                    <button onclick="ran2(4)">4</button>
+                    <button onclick="ran2(6)">6</button>
+                </div>
+            </div>
+            <div class="versus">VS</div>
+            <div>
+                <div style="display: flex;align-items: center;gap: 5px;border: 1px solid whea;width: 270px;"
+                    class="set">
+
+                    <div id="empty1"><span id="teamName2"></span>: <span id="forZero2">0</span><span
+                            id="total2">0</span>/
+                        <span id="wkt2">0</span><br> Overs <span id="over2">0</span>.<span id="balls2">0</span> (<span
+                            id="leng2"></span> )
+                    </div>
+                    <img src="" alt="" height="60" id="img2">
+
+                </div>
+                <div class="buttons">
+                    <div id="showShots2"></div>
+
+                    <div class="btn" id="btn2">
+
+
+                        <button onclick="ran(0)">0</button>
+                        <button onclick="ran(1)">1</button>
+                        <button onclick="ran(2)">2</button>
+                        <button onclick="ran(4)">4</button>
+                        <button onclick="ran(6)">6</button>
+
+                    </div>
+                </div>
+                <!-- <a href="" class="back-button">Back to Home</a> -->
+            </div>
+        </div>
+        <div id="result"></div>
+    </div>
+    <div id="celebrating">
+        <img src="flags/celebrating.jpg" alt=""
+            style="display: none;width: 100%;height: 400px;position: relative;top: 0px;bottom: 0px;" id="cele">
+        <div id="result2" style="position: absolute;bottom: 0px;"></div>
+
+    </div>
+
+    <script>
+
+        let sound3;
+        sound3 = new Audio('flags/game.mp3');
+        function soundStart() {
+            sound3.play()
+        }
+        setTimeout(function () {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('container').style.display = 'block';
+
+        }, 4000)
+
+
+        let val;
+        let needBalls1;
+        function increment() {
+            val = Number(document.getElementById('val').value);
+
+            if (val < 50) {
+                val++;
+
+            }
+            console.log('dusrs', val);
+            if (val == 3) {
+                val = "";
+                val = 2 + 3;
+                console.log("check", val);
+                document.getElementById('val').value = val;
+                document.getElementById('val').innerHTML = val;
+
+            }
+            if (val == 6) {
+                val = "";
+                val = 5 + 5;
+                console.log("check", val);
+                document.getElementById('val').value = val;
+                document.getElementById('val').innerHTML = val;
+
+            }
+            if (val == 11) {
+                val = "";
+                val = 4 + 11;
+                console.log("check", val);
+                document.getElementById('val').value = val;
+                document.getElementById('val').innerHTML = val;
+
+            }
+
+
+            if (val === 16) {
+                val = "";
+                val = 4 + 16;
+                console.log("check", val);
+                document.getElementById('val').value = val;
+                document.getElementById('val').innerHTML = val;
+
+            }
+            if (val === 21) {
+                val = "";
+                val = 9 + 21;
+                console.log("check", val);
+                document.getElementById('val').value = val;
+                document.getElementById('val').innerHTML = val;
+
+            }
+            if (val === 31) {
+                val = "";
+                val = 19 + 31;
+                document.getElementById('val').value = val;
+                if (val === 51) {
+                    val = "";
+
+                    document.getElementById('val').value = val;
+                    val = 51 - 2;
+
+
+                }
+            }
+            // if (val > 10) {
+
+            //     document.getElementById('val').value = val;
+            // }
+            // if (val > 20) {
+            //     console.log(val);
+            //     val = val - 5;
+            //     val = val + 10;
+            //     document.getElementById('val').value = val;
+            // }
+            // if (val === 30) {
+            //     val = val + 20;
+            //     console.log(val);
+            //     document.getElementById('val').value = val;
+            // }
+            // if (val > 50) {
+
+            //     document.getElementById('val').value = 50;
+
+
+            // }
+
+
+        }
+        function decrement() {
+            val = Number(document.getElementById('val').value);
+            console.log(val);
+            if (val === 5) {
+                val = val - 3;
+                document.getElementById('val').value = val;
+            }
+            if (val === 10) {
+                val = val - 5;
+                document.getElementById('val').value = val;
+            }
+            if (val === 15) {
+                val = val - 5;
+                document.getElementById('val').value = val;
+            }
+            if (val === 20) {
+                val = val - 5;
+                document.getElementById('val').value = val;
+            }
+            if (val === 30) {
+                val = val - 10;
+                document.getElementById('val').value = val;
+            }
+            if (val === 50) {
+                val = val - 20;
+                document.getElementById('val').value = val;
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let secondTeam = `
+                <div>
+                    <div id="teams">
+                    <h3>
+                        Choose Second Team
+                    </h3>
+
+                <div class="rowmy">
+                    <div class="team">
+                        <img src="flags/download-removebg-preview.png" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('India')">
+
+                    </div>
+                    <div class="team">
+                        <img src="flags/ind.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('South Africa')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/images.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('Australia')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/afg.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('Afghanistan')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/download (1).png" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('New Zealand')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/England_cricket_team_logo.svg.png" alt="" height="100%" width="100%"
+                            style="object-fit: contain;" onclick="team2('England')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/pak-removebg-preview.png" alt="" height="100%" width="100%" onclick="team2('Pakistan')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/wi.png" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('WestIndies')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/sri.png" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('Srilanka')">
+                    </div>
+                    <div class="team">
+                        <img src="flags/bang.jpg" alt="" height="100%" width="100%" style="object-fit: contain;"
+                            onclick="team2('Bangladesh')">
+                    </div>
+                </div>
+                </div>
+<div>
+                `;
+        let firstTeam;
+
+        function team(nation) {
+
+            if (nation === 'Pakistan' || nation === 'India' || nation === 'England' || nation === 'Afghanistan' || nation === 'Bangladesh' || nation === 'South Africa' || nation === 'New Zealand' || nation === 'WestIndies' || nation === 'Srilanka' || nation === 'Australia') {
+                firstTeam = nation;
+                document.getElementById('team1').innerHTML = "User: " + firstTeam;
+                document.getElementById('team3').innerHTML = firstTeam + " Vs " + " ";
+
+                document.getElementById('teams').innerHTML = secondTeam;
+
+            }
+        }
+        let secondTeam2;
+        function team2(nation2) {
+
+            if (nation2 === 'Pakistan' || nation2 === 'India' || nation2 === 'England' || nation2 === 'Afghanistan' || nation2 === 'Bangladesh' || nation2 === 'South Africa' || nation2 === 'New Zealand' || nation2 === 'WestIndies' || nation2 === 'Srilanka' || nation2 === 'Australia') {
+                secondTeam2 = nation2;
+
+                document.getElementById('dialog').style.display = 'flex'
+                document.getElementById('dialog').style.justifyContent = 'center'
+                document.getElementById('dialog').style.alignItems = 'center'
+
+                document.getElementById('team2').innerHTML = "Second User: " + secondTeam2;
+                document.getElementById('team4').innerHTML = " " + secondTeam2;
+
+                document.getElementById('footer').innerHTML = "<button onclick='confirm()'>Next</button>"
+
+
+                document.getElementById('overs').innerHTML = val;
+            }
+
+            if (secondTeam2 === firstTeam) {
+                document.getElementById('dialog').style.display = 'none'
+
+                document.getElementById('team2').innerHTML = " Already Selected";
+
+            }
+
+
+            sound3 = '';
+
+
+        }
+
+
+        function none() {
+            alert("You're only allowed to change second team")
+            document.getElementById('dialog').style.display = 'none'
+
+        }
+
+        let tossArea = `
+        <div id="toss">
+  
+         <div>
+           <div class="teams">
+            <div id="team1Toss"></div>
+            <h4>Vs</h4>
+            <div id="team2Toss"></div>
+
+         </div>
+
+         </div>
+
+    <div id='oversshow'></div>
+
+    <div id='replace'>
+
+        <div id="team1Tossask"></div>
+        What would you like to choose
+    
+          <button onclick="toss(1)">Heads</button>
+          <span>or</span>
+            <button onclick="toss(2)">Tails</button>
+
+    </div>
+    <div id='buttons'></div>
+
+    </div>
+</div>
+`
+
+
+        function confirm() {
+            document.getElementById('dialog').style.display = 'none'
+            document.body.style.backgroundImage = 'url(flags/toss.jpg)';
+            document.body.style.backgroundPosition = 'center'
+            document.getElementById('change').innerHTML = tossArea;
+            document.getElementById('team1Toss').innerHTML = firstTeam;
+            document.getElementById('team1Tossask').innerHTML = firstTeam;
+            document.getElementById('team2Toss').innerHTML = secondTeam2;
+
+            if (val == "" || val == null) {
+                document.getElementById('oversshow').innerHTML = `<h3>Match Overs :  2</h3>`;
+            } else {
+                document.getElementById('oversshow').innerHTML = `<h3>Match Overs :  ${val}</h3>`;
+
+            }
+
+
+
+        }
+        if (val == "" || val == null) {
+            val = 2;
+        } else {
+            val = val;
+
+        }
+
+
+        let tossWinner = '';
+        let tossLoser = '';
+
+        let head = Math.floor(Math.random() * 2 + 1);
+        console.log('random', head);
+        function toss(call) {
+            console.log('call', call);
+            if (head === call) {
+                head = "heads";
+                tossWinner = firstTeam;
+                tossLoser = secondTeam2;
+
+                document.getElementById('replace').innerHTML = firstTeam + " (User)won the toss what you like to do?"
+                document.getElementById('buttons').innerHTML = "<button onclick='(batball(1))'>Bat</button> or <button onclick='(batball(2))'>Ball</button>"
+            } else {
+                head = "Tails";
+                document.getElementById('replace').innerHTML = secondTeam2 + " (User2)won the toss what you like to do?"
+                document.getElementById('buttons').innerHTML = "<button onclick='(batball(1))'>Bat</button> or <button onclick='(batball(2))'>Ball</button>"
+
+                tossWinner = secondTeam2;
+                tossLoser = firstTeam;
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let game = document.getElementById('main');
+        let loading = document.getElementById('rem');
+        let target = 0;
+
+        function batball(forTeam) {
+            document.body.style.backgroundImage = 'url(flags/back.jpg)';
+
+            document.getElementById('change').innerHTML = '';
+            console.log(window.innerWidth < 800);
+            if (window.innerWidth < 800) {
+                game.style.display = 'flex';
+                game.style.flexDirection = 'column';
+                game.style.alignItems = 'center';
+                game.style.gap = '20px';
+
+            } else {
+                game.style.display = 'flex';
+                game.style.justifyContent = 'space-around';
+            }
+
+            console.log(tossWinner);
+            console.log(tossLoser);
+            aud1 = new Audio("");
+            aud1.play();
+
+            document.getElementById('leng').innerHTML = val;
+            document.getElementById('leng2').innerHTML = val;
+            let style1 = document.getElementById('empty').style.borderRadius = '5px';
+            document.getElementById('empty').style.padding = '10px';
+            let style2 = document.getElementById('empty1').style.borderRadius = '5px';
+            document.getElementById('empty1').style.padding = '10px';
+
+            if (forTeam === 1) {
+
+                firstTeam = tossWinner;
+                secondTeam2 = tossLoser
+                document.getElementById('teamName').innerHTML = tossWinner;
+                document.getElementById('teamName2').innerHTML = tossLoser;
+                //Pak vs Eng
+                if (tossWinner === 'Pakistan') {
+                    document.getElementById('img1').src = 'flags/pak-removebg-preview.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,rgb(1, 80, 1),rgb(189, 189, 4))';
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+                if (tossLoser === 'England') {
+                    document.getElementById('img2').src = 'flags/England_cricket_team_logo.svg.png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,purple,red)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'England') {
+                    document.getElementById('img1').src = 'flags/England_cricket_team_logo.svg.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,purple,red)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+                if (tossLoser === 'Pakistan') {
+                    document.getElementById('img2').src = 'flags/pak-removebg-preview.png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,rgb(1, 80, 1),rgb(189, 189, 4))';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                //Pak vs Eng...
+
+
+                //Pak vs Aus
+
+                if (tossLoser === 'Australia') {
+                    document.getElementById('img2').src = 'flags/images.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,green,yellow)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Australia') {
+                    document.getElementById('img1').src = 'flags/images.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,green,yellow)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+                // Pak vs Aus
+
+                // Pak vs Ind
+                if (tossLoser === 'India') {
+                    document.getElementById('img2').src = 'flags/download-removebg-preview.png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,blue,orange)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'India') {
+                    document.getElementById('img1').src = 'flags/download-removebg-preview.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,blue,orange)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+                // Pak vs Ind
+
+
+                // Pak vs Sri
+                if (tossLoser === 'Srilanka') {
+                    document.getElementById('img2').src = 'flags/sri.png'
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,darkblue,yellow)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Srilanka') {
+                    document.getElementById('img1').src = 'flags/sri.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,darkblue,yellow)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+                // Pak vs Sri
+
+                //Pak vs Bang
+                if (tossLoser === 'Bangladesh') {
+
+                    document.getElementById('img2').src = 'flags/bang.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,green,red)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Bangladesh') {
+                    document.getElementById('img1').src = 'flags/bang.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,green,red)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+
+
+                // Pak vs Afg
+                if (tossLoser === 'Afghanistan') {
+                    document.getElementById('img2').src = 'flags/afg.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,blue,red)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Afghanistan') {
+                    document.getElementById('img1').src = 'flags/afg.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,blue,red)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+
+                // Pak vs Afg
+
+                // Pak vs SA
+
+                if (tossLoser === 'South Africa') {
+                    document.getElementById('img2').src = 'flags/ind.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,yellowgreen,yellow)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'South Africa') {
+                    document.getElementById('img1').src = 'flags/ind.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,yellowgreen,yellow)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+
+                // Pak vs SA
+
+                // Pak vs NZ
+                if (tossLoser === 'New Zealand') {
+                    document.getElementById('img2').src = 'flags/download (1).png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,black,gray)';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'New Zealand') {
+                    document.getElementById('img1').src = 'flags/download (1).png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,black,gray)';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+                // Pak vs NZ
+                if (tossLoser === 'WestIndies') {
+                    document.getElementById('img2').src = 'flags/wi.png'
+
+                    document.getElementById('empty1').style.background = 'maroon';
+                    document.getElementById('empty1').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'WestIndies') {
+                    document.getElementById('img1').src = 'flags/wi.png'
+
+                    document.getElementById('empty').style.background = 'maroon';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style1;
+                }
+
+                document.getElementById('target').innerHTML = 'Toss :' + firstTeam + ' won the toss and elected to bat first';
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+            if (forTeam === 2) {
+
+                // Pak vs Eng
+                if (tossWinner === 'Pakistan') {
+                    document.getElementById('img2').src = 'flags/pak-removebg-preview.png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,rgb(1, 80, 1),rgb(189, 189, 4))';
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                if (tossLoser === 'England') {
+                    document.getElementById('img1').src = 'flags/England_cricket_team_logo.svg.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,purple,red)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'England') {
+                    document.getElementById('img2').src = 'flags/England_cricket_team_logo.svg.png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,purple,red)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                if (tossLoser === 'Pakistan') {
+                    document.getElementById('img1').src = 'flags/pak-removebg-preview.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,rgb(1, 80, 1),rgb(189, 189, 4))';
+
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                // Pak vs Eng
+
+                // Pak vs Aus
+
+                if (tossLoser === 'Australia') {
+                    document.getElementById('img1').src = 'flags/images.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,green,yellow)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Australia') {
+                    document.getElementById('img2').src = 'flags/images.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,green,yellow)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                // Pak vs Aus
+
+                // Pak vs Ind 
+
+                if (tossLoser === 'India') {
+                    document.getElementById('img1').src = 'flags/download-removebg-preview.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,blue,orange)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'India') {
+                    document.getElementById('img2').src = 'flags/download-removebg-preview.png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,blue,orange)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                // Pak vs Ind
+
+                // Pak vs sri
+
+                if (tossLoser === 'Srilanka') {
+                    document.getElementById('img1').src = 'flags/sri.png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,darkblue,yellow)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Srilanka') {
+                    document.getElementById('img2').src = 'flags/sri.png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,darkblue,yellow)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                // Pak vs sri
+
+                // Pak vs Ban
+                if (tossLoser === 'Bangladesh') {
+                    document.getElementById('img1').src = 'flags/bang.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,green,red)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Bangladesh') {
+                    document.getElementById('img2').src = 'flags/bang.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,green,red)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                // Pak vs bang
+
+
+                // Pak vs afg
+
+                if (tossLoser === 'Afghanistan') {
+                    document.getElementById('img1').src = 'flags/afg.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,blue,red)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'Afghanistan') {
+                    document.getElementById('img2').src = 'flags/afg.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,blue,red)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+
+
+                // Pak vs SA
+
+                if (tossLoser === 'South Africa') {
+                    document.getElementById('img1').src = 'flags/ind.jpg'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,yellowgreen,yellow)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'South Africa') {
+                    document.getElementById('img2').src = 'flags/ind.jpg'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,yellowgreen,yellow)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                // Pak vs SA
+
+                // Pak vs NZ
+                if (tossLoser === 'New Zealand') {
+                    document.getElementById('img1').src = 'flags/download (1).png'
+
+                    document.getElementById('empty').style.background = 'linear-gradient(to right,black,gray)';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'New Zealand') {
+                    document.getElementById('img2').src = 'flags/download (1).png'
+
+                    document.getElementById('empty1').style.background = 'linear-gradient(to right,black,gray)';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+                // Pak vs NZ
+
+                // Pak vs WI
+
+                if (tossLoser === 'WestIndies') {
+                    document.getElementById('img1').src = 'flags/wi.png'
+
+                    document.getElementById('empty').style.background = 'maroon';
+                    document.getElementById('empty').style.color = 'white';
+                    style2;
+                }
+                if (tossWinner === 'WestIndies') {
+                    document.getElementById('img2').src = 'flags/wi.png'
+
+                    document.getElementById('empty1').style.background = 'maroon';
+
+                    document.getElementById('empty1').style.color = 'white';
+                    style1;
+                }
+
+
+                firstTeam = tossLoser;
+                secondTeam2 = tossWinner;
+                document.getElementById('target').innerHTML = 'Toss :' + secondTeam2 + ' won the toss and elected to ball first';
+
+                document.getElementById('teamName').innerHTML = tossLoser;
+                document.getElementById('teamName2').innerHTML = tossWinner;
+
+            }
+
+            console.log(firstTeam, secondTeam2);
+            loading.style.display = 'block';
+            let progress = 0;
+            let loader = document.querySelector('.progress');
+            let interval = setInterval(function () {
+                progress += 10;
+                if (progress > 100) {
+                    clearInterval(interval);
+                    document.getElementById('rem').style.display = 'none'
+                } else {
+                    loader.style.width = progress + '%';
+
+                }
+            }, 1000);
+
+            // setTimeout(function () {
+
+            //     loading.style.display = 'none';
+
+            // }, 12000)
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let runs = 0;
+        let wkt = 0;
+        let over = 0;
+        let balls = 0;
+        let runs2 = 0;
+        let wkt2 = 0;
+        let over2 = 0;
+        let balls2 = 0;
+        let margin;
+        let need;
+        let needBalls;
+        let shotsShow = 0;
+        let shotsShow2 = 0;
+        function ran2(runScore) {
+
+            needBalls = val * 6;
+            balls++;
+            shotsShow++;
+            console.log(shotsShow);
+            if (shotsShow > 6) {
+                shotsShow = 1;
+                document.getElementById('showShots').innerHTML = '';
+            }
+            document.getElementById('balls').innerHTML = balls;
+            if (balls === 6) {
+                balls = 0;
+                document.getElementById('balls').innerHTML = balls;
+
+                over++;
+                document.getElementById('over').innerHTML = over;
+            }
+            let random = Math.floor(Math.random() * 7);
+            if (runScore === random) {
+                wkt++;
+
+                document.getElementById('showShots').innerHTML += "<div class='boxes' style='background-color:red;color:white'>W</div>";
+
+
+                document.getElementById('wkt').innerHTML = wkt;
+                if (wkt === 10) {
+                    need = runs;
+                    target = runs + 1;
+                    document.getElementById('showShots').innerHTML = '';
+
+                    document.getElementById('btn1').innerHTML = '1st Innings End';
+                    document.getElementById('btn2').style.display = 'flex';
+
+                    document.getElementById('btn2').style.gap = '5px';
+
+                    if (window.innerWidth < 800) {
+                        document.getElementById('target2').innerHTML = 'Target : ' + target;
+                        document.getElementById('target').innerHTML = '';
+
+                    } else {
+                        document.getElementById('target').innerHTML = 'Target : ' + target;
+                        document.getElementById('target2').innerHTML = '';
+
+                    }
+
+
+
+                }
+            } else {
+                runs += runScore;
+                if (runScore === 6) {
+                    document.getElementById('showShots').innerHTML += "<div class='boxes' style='background-color:blue;color:white'>" + runScore + "</div>";
+
+                }
+                else if (runScore === 4) {
+                    document.getElementById('showShots').innerHTML += "<div class='boxes' style='background-color:green;color:white'>" + runScore + "</div>";
+
+                } else {
+                    document.getElementById('showShots').innerHTML += "<div class='boxes' >" + runScore + "</div>";
+
+                }
+
+
+
+                if (runs > 10) {
+                    document.getElementById('forZero').innerHTML = '';
+                }
+                document.getElementById('total').innerHTML = runs;
+
+            }
+            if (over === val) {
+                need = runs;
+                target = runs + 1;
+
+
+                if (window.innerWidth < 800) {
+                    document.getElementById('target2').innerHTML = 'Target : ' + target;
+                    document.getElementById('target').innerHTML = '';
+
+                } else {
+                    document.getElementById('target').innerHTML = 'Target : ' + target;
+                    document.getElementById('target2').innerHTML = '';
+
+                }
+                document.getElementById('showShots').innerHTML = '';
+
+                document.getElementById('btn1').innerHTML = '1st Innings End';
+                document.getElementById('btn2').style.display = 'flex';
+                document.getElementById('btn2').style.gap = '5px';
+
+
+            }
+        }
+
+        function ran(runScore2) {
+            needBalls--;
+            document.getElementById('result').innerHTML = secondTeam2 + " need " + Number(need + 1) + " runs " + needBalls + ' Balls. ';
+
+            balls2++;
+            shotsShow2++;
+            if (shotsShow2 > 6) {
+                shotsShow2 = 1;
+                document.getElementById('showShots2').innerHTML = '';
+
+            }
+            document.getElementById('balls2').innerHTML = balls2;
+            if (balls2 === 6) {
+                balls2 = 0;
+                document.getElementById('balls2').innerHTML = balls2;
+
+                over2++;
+                document.getElementById('over2').innerHTML = over2;
+            }
+
+            let random2 = Math.floor(Math.random() * 7);
+            if (runScore2 === random2) {
+                wkt2++;
+                document.getElementById('showShots2').innerHTML += "<div class='boxes' style='background-color:red;color:white'>W</div>";
+
+                document.getElementById('wkt2').innerHTML = wkt2;
+                if (wkt2 === 10) {
+
+                    // document.getElementById('btn1').innerHTML = '1st Innings End';
+                    // document.getElementById('btn2').style.display = 'flex';
+                    document.getElementById('btn2').innerHTML = '2nd Innings End';
+
+                    if (runs2 < runs) {
+                        margin = target - runs2;
+                        document.getElementById('cele').style.display = 'block'
+
+                        margin = margin - 1;
+                        console.log(margin);
+                        document.getElementById('result2').innerHTML = firstTeam + ' wins by ' + margin + " runs.";
+
+                    }
+                    if (runs2 === runs) {
+                        document.getElementById('result').innerHTML = " Match Draw";
+
+                    }
+                }
+            } else {
+                need -= runScore2;
+
+                runs2 += runScore2;
+                if (runScore2 === 6) {
+                    document.getElementById('showShots2').innerHTML += "<div class='boxes' style='background-color:blue;color:white''>" + runScore2 + "</div>";
+
+                }
+                else if (runScore2 === 4) {
+                    document.getElementById('showShots2').innerHTML += "<div class='boxes' style='background-color:green;color:white'>" + runScore2 + "</div>";
+
+                } else {
+                    document.getElementById('showShots2').innerHTML += "<div class='boxes' >" + runScore2 + "</div>";
+
+                }
+
+
+                if (runs2 > 10) {
+                    document.getElementById('forZero2').innerHTML = '';
+                }
+                console.log(need);
+                console.log(runs);
+                document.getElementById('total2').innerHTML = runs2;
+                document.getElementById('result').innerHTML = secondTeam2 + " need " + Number(need + 1) + " runs " + needBalls + ' Balls. ';
+
+                if (runs2 > target) {
+                    margin = 10 - wkt2;
+                    document.getElementById('target').innerHTML = '';
+                    document.getElementById('target2').innerHTML = '';
+
+                    document.getElementById('showShots2').innerHTML = '';
+                    document.getElementById('cele').style.display = 'block'
+                    document.getElementById('result').innerHTML = '';
+                    document.getElementById('btn2').innerHTML = '2nd Innings End';
+                    document.getElementById('result2').innerHTML = secondTeam2 + ' wins by ' + margin + ' wickets.';
+                }
+            }
+            if (over2 === val) {
+
+                document.getElementById('btn2').innerHTML = '2nd Innings End';
+                if (runs2 < target) {
+                    margin = target - runs2;
+                    margin = margin - 1;
+                    document.getElementById('target').innerHTML = '';
+                    document.getElementById('target2').innerHTML = '';
+
+                    document.getElementById('result').innerHTML  = '';
+                    document.getElementById('cele').style.display = 'block'
+                    document.getElementById('result2').innerHTML = firstTeam + ' wins by ' + margin + ' runs.';
+                }
+                if (runs2 === runs) {
+                    document.getElementById('result').innerHTML = " Match Draw";
+                    document.getElementById('showShots2').innerHTML = '';
+
+                }
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
